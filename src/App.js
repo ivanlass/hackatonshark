@@ -1,18 +1,19 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navigation from './components/Navbar';
-import BottomLines from './components/BottomLines';
-import Cylinder from './components/Cylinder';
-import MainContent from './components/MainContent';
-
+import WholeApp from './WholeApp'
+import { ModalProvider } from "./context/Modal.context";
+import { ChainId, DAppProvider, useEtherBalance, useEthers } from '@usedapp/core'
 
 function App() {
+
   return (
     <div className="App">
-      <Navigation />
-      <Cylinder />
-      <MainContent />
-      <BottomLines />
+
+      <DAppProvider>
+      <ModalProvider>
+        <WholeApp />
+      </ModalProvider>
+      </DAppProvider>
     </div>
 
   );
